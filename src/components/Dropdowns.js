@@ -14,7 +14,7 @@ const Dropdowns = () => {
   const submitHandler = () => {};
 
   return (
-    <Form onSubmit={submitHandler} className="container my-5">
+    <Form onSubmit={submitHandler} className="container py-5">
       <Row>
         <Col md={1}></Col>
         <Col md={3} sm={12} className="dropdown-space">

@@ -1,8 +1,12 @@
+main {
+  min-height: 80.8vh;
+}
+
 .dropdown-toggle {
   visibility: hidden;
 }
 
-.dropdown-menu{
+.dropdown-menu {
   margin-left: -7.4rem !important;
 }
 
@@ -39,7 +43,7 @@
   touch-action: manipulation;
 }
 
-.register:hover{
+.register:hover {
   background-color: #0d6efd;
   color: #ffffff;
 }
@@ -83,12 +87,55 @@
 .showImage {
   visibility: visible;
 }
+
 .userImg {
   width: 38px;
   height: 38px;
   border-radius: 50%;
   object-fit: cover;
   margin-right: 10px;
+}
+
+.aboutContact {
+  font-family: Raleway-SemiBold;
+  font-size: 17px;
+  color: whitesmoke;
+  background-color: #1dbf73;
+  letter-spacing: 1px;
+  height: 3rem;
+  width: 13rem;
+  /* line-height: 25px; */
+  border: 2px solid #1dbf73;
+  border-radius: 40px;
+  /* background: transparent; */
+  transition: all 0.3s ease 0s;
+}
+
+.aboutImg {
+  width: 23rem !important;
+  height: 23rem !important;
+  border-radius: 50% !important;
+  object-fit: cover !important;
+  margin-top: 2.5rem;
+  margin-bottom: 2rem;
+  margin-left: 4.5rem;
+  /* margin-right: rem; */
+  /* margin: 3.5rem; */
+}
+
+.aboutText {
+  color: #1dbf73;
+}
+
+.about:after {
+  /* this is the border */
+  content: "";
+  display: block;
+  width: 2.5em;
+  max-width: 50%;
+  border-bottom: 2px solid #1dbf73;
+  margin-top: 10px;
+  /* margin: 2em auto 0; */
 }
 
 .userName {
@@ -191,9 +238,17 @@
   .mobilee-logo {
     margin-left: 0 !important;
   }
+
+  .aboutImg {
+    width: 15rem !important;
+    height: 15rem !important;
+    border-radius: 50% !important;
+    object-fit: cover !important;
+    margin: 3.5rem;
+  }
 }
 
-.hover-color:hover{
+.hover-color:hover {
   color: #e0e0e0;
 }
 

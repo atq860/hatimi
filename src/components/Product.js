@@ -3,7 +3,7 @@ import { Card, Button, Row, Col } from "react-bootstrap";
 
 const Product = ({ users }) => {
   return (
-    <div className="my-5 container-fluid">
+    <div className="py-5 container-fluid">
       <Row style={{ marginLeft: "1.2rem" }}>
         <Col md={2} className="res-view">
           <img

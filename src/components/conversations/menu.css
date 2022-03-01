@@ -1,0 +1,87 @@
+.navbarConversations {
+  /* background-color: #060b26; */
+  height: 80px;
+  display: flex;
+  justify-content: start;
+  /* align-items: center; */
+}
+
+.menu-barss {
+  /* margin-left: 8rem; */
+  /* color: #060b26; */
+  font-size: 1rem;
+  background: none;
+}
+
+.conversationResponsive {
+    display: none;
+}
+
+.nav-menuu {
+  /* background-color: #060b26; */
+  background-color: #F5F5F5;
+  width: 350px;
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  top: 80px;
+  left: -100%;
+  transition: 850ms;
+}
+
+.nav-menuu.active {
+  left: 0;
+  transition: 350ms;
+}
+
+.nav-textt {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  padding: 8px 0px 8px 16px;
+  list-style: none;
+  height: 60px;
+}
+
+.nav-textt a {
+  text-decoration: none;
+  /* color: #f5f5f5; */
+  color: black;
+  font-size: 18px;
+  width: 95%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  /* padding: 0 16px; */
+  border-radius: 4px;
+}
+
+.nav-textt a:hover {
+  background-color: #1a83ff;
+}
+
+.nav-menu-itemss {
+  width: 100%;
+}
+
+.navbar-togglee {
+  /* background-color: #060b26; */
+  /* background-color: black; */
+  width: 100%;
+  height: 80px;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
+@media screen and (max-width: 768px) {
+    .conversationResponsive {
+      display: block;
+    }
+    
+  }
+
+/* span {
+    margin-left: 16px;
+  } */

@@ -9,6 +9,7 @@ import {
   Card,
 } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
+import { Link } from "react-router-dom";
 
 function Header() {
   const [userInfo, setUserInfo] = useState(false);
@@ -23,7 +24,9 @@ function Header() {
       >
         {/* <Container> */}
         <Navbar.Brand style={{ marginLeft: "4rem" }} className="mobilee-logo">
-          <img src="\logo192.png" alt="logo" className="logoImage" />
+          <Link to="/">
+            <img src="\logo192.png" alt="logo" className="logoImage" />
+          </Link>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="standard-navbar-nav">
@@ -33,6 +36,7 @@ function Header() {
                 <Nav.Link className="messages d-none d-lg-block">
                   <div style={{ color: "rgba(0, 0, 0, 0.55)" }}>Messages</div>
                 </Nav.Link>
+
                 <div className="d-block d-lg-none mt-4">
                   <img
                     className="userImg showImage"
