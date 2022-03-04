@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Conversations from "./components/conversations/Conversations";
 import Dropdowns from "./components/Dropdowns";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
@@ -25,6 +26,7 @@ function App() {
           />
           <Route path="/messenger" element={<MessengerScreen />} />
           <Route path="/aboutme" element={<About />} />
+          <Route path="/conversations" element={<Conversations />} exact/>
         </Routes>
       </main>
       <Footer />

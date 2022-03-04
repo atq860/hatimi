@@ -3,7 +3,8 @@ import "./message.css";
 
 export default function Message({ message, own }) {
   return (
-    <div className={own ? "message own" : "message"}>
+    // <div className={own ? "message own" : "message"}>
+    <div className="message">
       <div className="messageTop">
         <img
           className="messageImg"
@@ -12,9 +13,16 @@ export default function Message({ message, own }) {
           alt=""
         />
         {/* <p className="messageText">{message.text}</p> */}
-        <p className="messageText">Test</p>
+        <div style={{ display: "flex", flexDirection: "column" }}>
+          <strong className="">{own ? "Me" : "John Doe"}</strong>
+          <p className=" messageText">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur
+            ut, nisi, beatae totam cumque esse illo autem fuga ab dolor facere
+            magni? Officiis alias commodi nemo voluptatibus qui a eius.
+          </p>
+        </div>
       </div>
-      <div className="messageBottom">2 mins ago</div>
+      {/* <div className="messageBottom">2 mins ago</div> */}
       {/* <div className="messageBottom">{format(message.createdAt)}</div> */}
     </div>
   );

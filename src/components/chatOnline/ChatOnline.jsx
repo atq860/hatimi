@@ -32,7 +32,7 @@ export default function ChatOnline({ onlineUsers, currentId, setCurrentChat }) {
 //   };
 
   return (
-    <div className="chatOnline">
+    <div className="chatOnline onlineborder">
       {/* {onlineFriends.map((o) => ( */}
         <div className="chatOnlineFriend" /* onClick={() => handleClick(o)} */>
           <div className="chatOnlineImgContainer">

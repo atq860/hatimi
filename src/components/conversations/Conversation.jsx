@@ -15,6 +15,9 @@ import {
   Button,
   ListGroup,
   Card,
+  Row,
+  Col,
+  ListGroupItem,
 } from "react-bootstrap";
 
 export default function Conversation({ conversation, currentUser, sidebar }) {
@@ -47,7 +50,7 @@ export default function Conversation({ conversation, currentUser, sidebar }) {
   return (
     <>
       {sidebar ? (
-        <div className="conversationRes">
+        <div className="conversationRes convborder">
           <img
             className="conversationImg"
             src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
@@ -56,13 +59,14 @@ export default function Conversation({ conversation, currentUser, sidebar }) {
           <span className="conversationName">John Doe</span>
         </div>
       ) : (
-        <div className="conversation">
+        <div className="conversation convborder">
           <img
             className="conversationImg"
             src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
             alt=""
           />
-          <span className="conversationName">John Doe</span>
+          <span className="conversationName">John Doee</span>
+          
         </div>
       )}
     </>
