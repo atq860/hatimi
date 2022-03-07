@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { Navigate, useNavigate } from "react-router-dom"
+import { useState, useEffect } from "react";
+import { Navigate, useNavigate } from "react-router-dom";
 import Conversation from "../../components/conversations/Conversation";
 import Conversations from "../../components/conversations/Conversations";
 import Message from "../../components/message/Message";
@@ -28,18 +28,25 @@ import {
 export default function MessengerScreen(props) {
   const [currentChat, setCurrentChat] = useState(true);
   const [currentConversation, setCurrentConversation] = useState(null);
-  const [sidebar, setSidebar] = useState(null);
   const [newMessage, setNewMessage] = useState("");
+  const [typing, setTyping] = useState(null);
   const navigate = useNavigate();
-
-  const showSidebar = () => {
-    setSidebar(!sidebar);
-    // sidebarr(!sidebar)
-  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log("Test ", e);
+  };
+
+  useEffect(() => {
+    console.log("Test ");
+  }, [newMessage, typing]);
+
+  const typingHandle = () => {
+    if (newMessage.length > 0) {
+      setTyping(true);
+    } else if (newMessage.length === 0 && typing) {
+      setTyping(false);
+    }
   };
 
   return (
@@ -49,97 +56,35 @@ export default function MessengerScreen(props) {
           <Card style={{ height: "79vh" }}>
             <Card.Body style={{ padding: "0" }}>
               <div className="messenger">
-                <div
-                  className="chatMenu"
-                  // style={{ display: sidebar ? "block" : "none" }}
-                >
+                <div className="chatMenu">
                   <div className="chatMenuWrapper">
-                    <div className="convHeadborder">All Conversations</div>
-                    <div className="conversationsScroll">
-                      <div
-                        style={{
-                          background:
-                            currentConversation === 1 ? "#e5f8e6" : "none",
-                        }}
-                        onClick={() => setCurrentConversation(1)}
-                      >
-                        <Conversation />
-                      </div>
-                      <div
-                        style={{
-                          background:
-                            currentConversation === 2 ? "#e5f8e6" : "none",
-                        }}
-                        onClick={() => setCurrentConversation(2)}
-                      >
-                        <Conversation />
-                      </div>
-                    </div>
+                    <Conversation />
                   </div>
                 </div>
 
-                {/* ____________________________ */}
-                {/* <div className="conversationResponsive">
-                  <IconContext.Provider value={{ color: "black" }}>
-                    <div className="navbarConversations">
-                      <Link to="#" className="menu-barss">
-                        <FaIcons.FaBars
-                          onClick={showSidebar}
-                          style={{ color: "black" }}
-                        />
-                      </Link>
-                    </div>
-                    <nav className={sidebar ? "nav-menuu active" : "nav-menuu"}>
-                      <ul className="nav-menu-itemss" onClick={showSidebar}>
-                        <li className="navbar-togglee">
-                          <Link to="#" className="menu-barss">
-                            <AiIcons.AiOutlineClose />
-                          </Link>
-                        </li>
-
-                        {conversations.map((c) => (
-                          <li
-                            className="nav-textt"
-                            onClick={() => setCurrentChat(c)}
-                          >
-                            <Link to="#">
-                              <div className="conversationRes">
-                                <Conversation
-                                  currentUser={user}
-                                  conversation={c}
-                                  sidebar={sidebar}
-                                />
-                              </div>
-                            </Link>
-                          </li>
-                        ))}
-                      </ul>
-                    </nav>
-                  </IconContext.Provider>
-                </div> */}
-                {/* _______________________ */}
-
-                <div
-                  className="chatBox"
-                  style={{ display: sidebar ? "none" : "block" }}
-                >
+                <div className="chatBox">
                   <div className="chatBoxWrapper">
-                    <div className="chatHeadborder">
-                      <FaIcons.FaArrowLeft
-                        // onClick={showSidebar}
-                        onClick={() => {
-                          navigate("/conversations");
-                          // props.history.push("/conversations");
-                          // setSidebar(!sidebar);
-                          // console.log("test", sidebar);
-                        }}
-                        style={{ color: "black" }}
-                        className="chatBackArrow"
-                      />
-                      <span className="chatHeadUserName">John Doe</span>
-                    </div>
                     {currentChat ? (
                       <>
+                        <div className="chatHeadborder">
+                          <FaIcons.FaArrowLeft
+                            onClick={() => {
+                              navigate("/conversations");
+                            }}
+                            style={{ color: "black" }}
+                            className="chatBackArrow"
+                          />
+                          <span
+                            className="chatHeadUserName"
+                            style={{
+                              fontWeight: "500",
+                              fontSize: "18px",
+                              textDecoration: "underline",
+                            }}
+                          >
+                            John Doe
+                          </span>
+                        </div>
                         <div className="chatBoxTop">
                           <Message />
                           <Message own={true} />
@@ -148,25 +93,27 @@ export default function MessengerScreen(props) {
                           <Message />
                           <Message />
                           <Message />
+
+                          {typing ? (
+                            <div className="typing">
+                              <div className="typing__dot"></div>
+                              <div className="typing__dot"></div>
+                              <div className="typing__dot"></div>
+                            </div>
+                          ) : (
+                            <></>
+                          )}
                         </div>
                         <div className="chatBoxBottom">
-                          {/* <div
-                            style={{
-                              display: "flex",
-                              flexDirection: "column",
-                              width: "100%",
-                            }}
-                          > */}
                           <textarea
                             className="chatMessageInput"
-                            // placeholder="write something..."
                             onChange={(e) => setNewMessage(e.target.value)}
                             value={newMessage}
+                            onKeyPress={typingHandle}
                           ></textarea>
                           <button
                             className="chatSubmitButton"
                             onClick={handleSubmit}
-                            // style={{marginLeft: "45rem"}}
                           >
                             Send
                           </button>
@@ -182,9 +129,7 @@ export default function MessengerScreen(props) {
                 <div className="chatOnline">
                   <div className="chatOnlineWrapper">
                     <div className="convHeadborder">Online Friends</div>
-                    {/* <div className="conversationsScroll"> */}
                     <ChatOnline />
-                    {/* </div> */}
                   </div>
                 </div>
               </div>

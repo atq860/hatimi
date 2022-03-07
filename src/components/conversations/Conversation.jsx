@@ -1,74 +1,77 @@
-// import axios from "axios";
-import { useEffect, useState } from "react";
-import * as FaIcons from "react-icons/fa";
-import * as AiIcons from "react-icons/ai";
-import { Link } from "react-router-dom";
-import { SidebarData } from "./SidebarData";
-import "./menu.css";
-import { IconContext } from "react-icons";
+import { useState } from "react";
+import { Navigate, useNavigate } from "react-router-dom";
+import { Card } from "react-bootstrap";
 import "./conversation.css";
-import {
-  Navbar,
-  Nav,
-  Container,
-  NavDropdown,
-  Button,
-  ListGroup,
-  Card,
-  Row,
-  Col,
-  ListGroupItem,
-} from "react-bootstrap";
+import "../../screens/messenger/messenger.css";
 
-export default function Conversation({ conversation, currentUser, sidebar }) {
-  // const [sidebar, setSidebar] = useState(false);
+export default function Conversation() {
+  const navigate = useNavigate();
 
-  // const showSidebar = () => {
-  //   setSidebar(!sidebar)
-  //   sidebarr(!sidebar)
-  // }
-
-  //   const [user, setUser] = useState(null);
-  //   const PF = process.env.REACT_APP_PUBLIC_FOLDER;
-
-  //   useEffect(() => {
-  //     const friendId = conversation.members.find((m) => m !== currentUser._id);
-
-  //     const getUser = async () => {
-  //       try {
-  //         const res = await axios("/users?userId=" + friendId);
-  //         setUser(res.data);
-  //       } catch (err) {
-  //         console.log(err);
-  //       }
-  //     };
-  //     getUser();
-  //   }, [currentUser, conversation]);
-
-  // console.log('sdjkf', sidebar);
+  const [currentConversation, setCurrentConversation] = useState(null);
 
   return (
-    <>
-      {sidebar ? (
-        <div className="conversationRes convborder">
-          <img
-            className="conversationImg"
-            src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
-            alt=""
-          />
-          <span className="conversationName">John Doe</span>
+    <Card style={{ height: "78vh", border: "none" }} className="cardHeight">
+      <Card.Body style={{ padding: "0" }}>
+        <div className="convHeadborder">All Conversations</div>
+        <div className="conversationsScroll">
+          <div
+            className="conversation convborder backColorFocus"
+            style={{
+              background: currentConversation === 1 ? "#e5f8e6" : "none",
+            }}
+            onClick={() => setCurrentConversation(1)}
+          >
+            <img
+              className="conversationImg"
+              src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
+              alt=""
+            />
+            <span className="conversationName">John Doe</span>
+          </div>
+          <div
+            className="conversation convborder backColorFocus"
+            style={{
+              background: currentConversation === 2 ? "#e5f8e6" : "none",
+            }}
+            onClick={() => setCurrentConversation(2)}
+          >
+            <img
+              className="conversationImg"
+              src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
+              alt=""
+            />
+            <span className="conversationName">John Doe</span>
+          </div>
         </div>
-      ) : (
-        <div className="conversation convborder">
-          <img
-            className="conversationImg"
-            src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
-            alt=""
-          />
-          <span className="conversationName">John Doee</span>
-          
+
+        {/* Responsive */}
+        {/* <div className="conversationResponsive"> */}
+        <div className="conversationResponsive">
+          <div
+            className="conversation convborder"
+            onClick={() => navigate("/messenger")}
+          >
+            <img
+              className="conversationImg"
+              src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
+              alt=""
+            />
+            <span className="conversationName">John Doe</span>
+          </div>
+          <div
+            className="conversation convborder"
+            onClick={() => navigate("/messenger")}
+          >
+            <img
+              className="conversationImg"
+              src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
+              alt=""
+            />
+            <span className="conversationName">John Doe</span>
+          </div>
         </div>
-      )}
-    </>
+        {/* </div> */}
+      </Card.Body>
+    </Card>
   );
 }

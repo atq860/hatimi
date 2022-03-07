@@ -4,8 +4,8 @@
 }
 
 .messengerBox {
-  margin-left: 4rem !important;
-  margin-right: 4rem !important;
+  margin-left: 2rem !important;
+  margin-right: 2rem !important;
 }
 
 .convHeadborder {
@@ -27,18 +27,13 @@
 .chatHeadborder {
   display: flex;
   align-items: center;
-  padding: 20px 0px 20px 20px;
+  padding: 20px 0px 17px 20px;
   cursor: pointer;
   border-bottom: 1px solid #e4e5e7;
 }
 
 .chatBackArrow {
   display: none;
-}
-
-.conversationsScroll {
-  overflow-y: scroll;
-  height: 110.3%;
 }
 
 .chatMenu {
@@ -168,6 +163,7 @@
   font-size: 50px;
   color: rgb(224, 220, 220);
   cursor: default;
+  padding-left: 2rem;
 }
 
 .arrow {
@@ -176,6 +172,55 @@
   color: #777;
   font-size: 30px;
 }
+
+/* Typing gif */
+
+.typing {
+  width: 5em;
+  height: 2em;
+  position: relative;
+  padding: 10px;
+  margin-left: 3rem;
+  /* background: #e6e6e6; */
+  border-radius: 20px;
+}
+
+.typing__dot {
+  float: left;
+  width: 8px;
+  height: 8px;
+  margin: 0 4px;
+  background: #1dbf73;
+  border-radius: 50%;
+  opacity: 0;
+  animation: loadingFade 1s infinite;
+}
+
+.typing__dot:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.typing__dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.typing__dot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes loadingFade {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Typing Gif Ends */
 
 @media screen and (max-width: 768px) {
   .messengerBox {
@@ -202,12 +247,12 @@
     margin-left: 30px !important;
   }
 
-  .convHeadborder {
+  /* .convHeadborder {
     display: none;
-  }
+  } */
 
   .chatMenuWrapper {
-    border-right: none;
+    display: none;
   }
 
   .chatOnlineWrapper {
