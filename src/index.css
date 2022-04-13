@@ -1,5 +1,13 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 main {
   min-height: 80.8vh;
+  margin: 0;
+  padding: 0;
 }
 
 .dropdown-toggle {
@@ -13,6 +21,85 @@ main {
 .login {
   background-color: #e0e0e0;
 }
+
+/* Login Register Page Start*/
+.register-page {
+  height: calc(94vh - 72px);
+  display: flex;
+}
+
+.register-page-box {
+  margin-left: 1rem !important;
+  margin-right: 1rem !important;
+}
+
+.register-page-box-shadow {
+  /* box-shadow: 0 1rem 4rem rgba(245,245,245,.6) */
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.6);
+}
+.register-page-box {
+  margin-left: 1rem !important;
+  margin-right: 1rem !important;
+}
+
+.register-page-left {
+  flex: 5;
+}
+
+.register-page-right {
+  flex: 5;
+  margin-top: -3.1rem;
+  margin-right: -2.5rem;
+  /* background: #0d6efd; */
+  background: linear-gradient(
+    to right,
+    rgba(25, 135, 84, 0.5),
+    rgba(25, 135, 84, 0.5)
+      /* rgba(0, 0, 255, 0.5),
+    rgba(0, 0, 255, 0.4),
+    rgba(0, 0, 255, 0.5) */
+  );
+  /* border: 40px solid transparent;
+  border-image: linear-gradient(rgba(20, 102, 47, 1));
+  border-image-slice: 1;
+  padding: 25px; */
+}
+
+.register-page-left-box {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: start;
+  padding: 18px 0px 15px 20px;
+  left: 0;
+}
+
+.register-page-right-box {
+  display: flex;
+  flex-direction: column;
+  margin-top: 11rem;
+}
+
+.input-border {
+  border: none !important;
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.grad1 {
+  /* height: 100px;
+  width: 550px; */
+  background: -webkit-radial-gradient(red 5%, green 15%, pink 90%);
+  background: -o-radial-gradient(red 5%, green 15%, pink 90%);
+  background: -moz-radial-gradient(red 5%, green 15%, pink 90%);
+  background: radial-gradient(red 5%, green 15%, pink 90%);
+}
+
+/* Login Register Page Ends */
 
 /* CSS */
 .login {
@@ -169,7 +256,10 @@ main {
 .logoImage {
   width: 40px;
   height: 40px;
-  margin: 6px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  /* margin: 6px; */
   border-radius: 5%;
 }
 
@@ -339,5 +429,28 @@ section {
     border-left: transparent;
     padding-bottom: 0px;
     margin-bottom: 10px;
+  }
+
+  .register-page-box {
+    margin-left: -1.5rem !important;
+    margin-right: -1.5rem !important;
+    margin-top: -6rem !important;
+    margin-bottom: -3rem !important;
+  }
+
+  .register-page-box-shadow {
+    box-shadow: 0 0 0 !important;
+  }
+
+  .border-responsive {
+    border-radius: 0px !important;
+  }
+
+  .border-shadow {
+    box-shadow: 0px 0px 0px 0px !important;
+  }
+
+  .register-page-right {
+    display: none !important;
   }
 }
