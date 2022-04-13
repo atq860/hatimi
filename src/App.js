@@ -9,6 +9,7 @@ import Product from "./components/Product";
 import About from "./screens/About";
 import MessengerScreen from "./screens/messenger/MessengerScreen";
 import RegisterScreen from "./screens/RegisterScreen";
+import LoginScreen from "./screens/LoginScreen";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
           <Route path="/aboutme" element={<About />} />
           <Route path="/conversations" element={<Conversation />} exact/>
           <Route path="/register" element={<RegisterScreen />} exact/>
+          <Route path="/login" element={<LoginScreen />} exact/>
         </Routes>
       </main>
       <Footer />

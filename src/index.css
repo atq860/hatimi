@@ -49,6 +49,7 @@ main {
 .register-page-right {
   flex: 5;
   margin-top: -3.1rem;
+  /* margin-bottom: -1.6rem; */
   margin-right: -2.5rem;
   /* background: #0d6efd; */
   background: linear-gradient(
@@ -67,10 +68,9 @@ main {
 
 .register-page-left-box {
   display: flex;
-  flex-direction: row-reverse;
-  align-items: start;
+  /* align-items: start; */
   padding: 18px 0px 15px 20px;
-  left: 0;
+  /* left: 0; */
 }
 
 .register-page-right-box {

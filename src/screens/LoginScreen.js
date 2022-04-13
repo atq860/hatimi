@@ -3,12 +3,10 @@ import { Row, Col, Card, Form, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import FormContainer from "../components/FormContainer";
 
-function RegisterScreen() {
-  const [name, setName] = useState("");
+function LoginScreen() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [profession, setProfession] = useState("");
-  const [gender, setGender] = useState("");
+  const [rememberMe, setRememberMe] = useState(false);
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -34,27 +32,21 @@ function RegisterScreen() {
                   style={{ fontFamily: "Calibri" }}
                 >
                   <FormContainer>
-                    <img src="\logo192.png" alt="logo" className="logoImage" />
+                    <img
+                      src="\logo192.png"
+                      alt="logo"
+                      className="logoImage"
+                      style={{ marginTop: "6rem" }}
+                    />
 
-                    <h6 style={{ textAlign: "center", marginTop: "0.5rem" }}>
-                      Sign Up to Dashboard
+                    <h6 style={{ textAlign: "center", marginTop: "1.5rem" }}>
+                      Sign In to Dashboard
                     </h6>
                     {/* Calibri Candara Comic Sans MS*/}
                     <Form
                       onSubmit={submitHandler}
                       style={{ marginTop: "1rem" }}
                     >
-                      <Form.Group controlId="name">
-                        <Form.Label style={{ color: "grey" }}>Name</Form.Label>
-                        <Form.Control
-                          type="name"
-                          placeholder="Type your Name"
-                          value={name}
-                          onChange={(e) => setName(e.target.value)}
-                          className="input-border"
-                        ></Form.Control>
-                      </Form.Group>
-
                       <Form.Group controlId="email" className="mt-2">
                         <Form.Label style={{ color: "grey" }}>Email</Form.Label>
                         <Form.Control
@@ -66,40 +58,7 @@ function RegisterScreen() {
                         ></Form.Control>
                       </Form.Group>
 
-                      <Form.Group controlId="profession" className="mt-2">
-                        <Form.Label style={{ color: "grey" }}>
-                          Profession
-                        </Form.Label>
-                        <Form.Control
-                          as="select"
-                          value={profession}
-                          onChange={(e) => setProfession(e.target.value)}
-                          className="input-border"
-                        >
-                          <option value="">Select...</option>
-                          <option value="maths">Professor</option>
-                          <option value="physics">Student</option>
-                        </Form.Control>
-                      </Form.Group>
-
-                      <Form.Group controlId="gender" className="mt-2">
-                        <Form.Label style={{ color: "grey" }}>
-                          Gender
-                        </Form.Label>
-                        <Form.Control
-                          as="select"
-                          value={gender}
-                          onChange={(e) => setGender(e.target.value)}
-                          className="input-border"
-                        >
-                          <option value="">Select...</option>
-                          <option value="maths">Male</option>
-                          <option value="physics">Female</option>
-                          <option value="physics">Other</option>
-                        </Form.Control>
-                      </Form.Group>
-
-                      <Form.Group controlId="password" className="mt-2">
+                      <Form.Group controlId="password" className="mt-3">
                         <Form.Label style={{ color: "grey" }}>
                           Password
                         </Form.Label>
@@ -111,32 +70,44 @@ function RegisterScreen() {
                           className="input-border"
                         ></Form.Control>
                       </Form.Group>
+                      <Link
+                        to="reset-password"
+                        className="float-right mt-4"
+                        style={{ textDecoration: "none" }}
+                      >
+                        Reset Password
+                      </Link>
+
+                      <Form.Group controlId="rememberMe" className="mt-4">
+                        <Form.Check
+                          type="checkbox"
+                          label="Remember me"
+                          checked={rememberMe}
+                          onChange={(e) => {
+                            setRememberMe(e.target.checked);
+                          }}
+                        ></Form.Check>
+                      </Form.Group>
 
                       <Button
                         type="submit"
                         variant="primary"
-                        className="btn btn-block mt-3"
+                        className="btn btn-block mt-4"
                         style={{
                           backgroundColor: "rgba(0, 0, 255, 0.8)",
                           boxShadow: "rgba(0, 0, 0, 0.40) 0px 5px 20px",
                         }}
                       >
-                        Register
+                        Login
                       </Button>
                     </Form>
 
-                    {/* <Row style={{ textAlign: "center", marginTop: "5.5rem" }}>
+                    <Row style={{ textAlign: "center", marginTop: "5rem" }}>
                       <Col>
-                        Have an account?{" "}
-                        <Link to="/login" style={{ textDecoration: "none" }}>
+                        New to App?{" "}
+                        <Link to="/register" style={{ textDecoration: "none" }}>
                           Register
                         </Link>
-                      </Col>
-                    </Row> */}
-
-                    <Row className="py-4" style={{ textAlign: "center" }}>
-                      <Col>
-                        Have an account <Link to="/login" style={{ textDecoration: "none" }}>Login</Link>
                       </Col>
                     </Row>
                   </FormContainer>
@@ -181,6 +152,24 @@ function RegisterScreen() {
                     </div>
                     <div style={{ flex: "2" }}></div>
                   </div>
+                  {/* <Row>
+                    <Col md={3}></Col>
+                    <Col md={6}>
+                      <h1 style={{ fontSize: "6rem" }}>Make a Dream.</h1>
+                    </Col>
+                    <Col md={3}></Col>
+                  </Row>
+                  <Row style={{ marginTop: "2rem" }}>
+                    <Col md={4}></Col>
+                    <Col md={6}>
+                      <p style={{ marginLeft: "3rem" }}>
+                        "Lorem ipsum dolor sit amet, consectetur adipiscing
+                        elit, sed do eiusmod tempor incididunt ut labore et
+                        dolore magna."
+                      </p>
+                    </Col>
+                    <Col md={2}></Col>
+                  </Row> */}
                 </div>
               </div>
             </div>
@@ -191,4 +180,4 @@ function RegisterScreen() {
   );
 }
 
-export default RegisterScreen;
+export default LoginScreen;
