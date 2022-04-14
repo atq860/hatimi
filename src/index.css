@@ -22,7 +22,7 @@ main {
   background-color: #e0e0e0;
 }
 
-/* Login Register Page Start*/
+/* ___________________ Login Register Page Start _____________________*/
 .register-page {
   height: calc(94vh - 72px);
   display: flex;
@@ -99,9 +99,9 @@ main {
   background: radial-gradient(red 5%, green 15%, pink 90%);
 }
 
-/* Login Register Page Ends */
+/* ___________________ Login Register Page Ends ______________________ */
 
-/* CSS */
+/* _____________________ Login Register Button Header Starts ______________*/
 .login {
   background-color: #e0e0e0;
   border-radius: 8px;
@@ -166,10 +166,7 @@ main {
   touch-action: manipulation;
 }
 
-/* .button-1:hover,
-.button-1:focus {
-  background-color: #f082ac;
-} */
+/* _____________________ Login Register Button Header Ends ______________*/
 
 .showImage {
   visibility: visible;
@@ -274,6 +271,59 @@ main {
   overflow-y: scroll;
   /* overflow-x: hidden; */
 }
+
+/* ___________________________ Profile Page Starts ___________________________ */
+.profileBox {
+  margin-left: 2rem !important;
+  margin-right: 2rem !important;
+}
+
+.uploadProfile {
+  font-size: 15px;
+  color: whitesmoke;
+  background-color: #1dbf73;
+  height: 2.5rem;
+  width: 10rem;
+  border: 2px solid #1dbf73;
+  transition: all 0.3s ease 0s;
+}
+
+.profile:after {
+  /* this is the border */
+  content: "";
+  display: block;
+  width: 2.5em;
+  max-width: 50%;
+  border-bottom: 2px solid #1dbf73;
+  margin-top: 10px;
+  /* margin: 2em auto 0; */
+}
+
+.profileImage {
+  border-radius: 50% !important;
+  object-fit: cover !important;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.profilePicContainer {
+  position: relative;
+  margin-right: 10px;
+}
+.profileDeleteBadge {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  /* background-color: limegreen; */
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  /* top: -8rem;
+  right: 6.5rem; */
+}
+/* ___________________________ Profile Page Ends ___________________________ */
 
 @media (max-width: 767px) {
   html,
@@ -452,5 +502,16 @@ section {
 
   .register-page-right {
     display: none !important;
+  }
+
+  .profileBox {
+    margin-left: -0.8rem !important;
+    margin-right: -0.8rem !important;
+    margin-top: -3rem !important;
+    margin-bottom: -1.6rem !important;
+  }
+
+  .card-border {
+    border-radius: 0 !important;
   }
 }
